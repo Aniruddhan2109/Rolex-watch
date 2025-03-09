@@ -4,122 +4,263 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rolex Watches</title>
-    <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
-        .hero {
-            background: url('https://via.placeholder.com/1920x600') no-repeat center center/cover;
-            height: 600px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: #fff;
-            text-align: center;
+        /* Video Section */
+        .video-section {
+            position: relative;
+            width: 100%;
+            height: 500px;
+            overflow: hidden;
         }
-        .video-container {
-    position: relative;
-    width: 100%;
-    height: 100vh; /* Full viewport height */
+        .video-section video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: -1;
+        }
+        .video-overlay {
+            position: relative;
+            text-align: center;
+            color: white;
+            padding: 150px 20px;
+            font-size: 2rem;
+            font-weight: bold;
+        }
+        
+        /* Product Styling */
+        .product img {
+            width: 100%; 
+            height: 250px;
+            object-fit: cover;
+            border-radius: 10px; 
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+        .product img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        .product h4, .product p, .product button {
+            margin-top: 10px;
+        }
+        .nav-link:hover {
+            color: burlywood !important;
+        }
+
+        /* Ensure consistent spacing between product rows */
+        .row {
+            row-gap: 20px;
+        }
+        .contact-container {
+            padding: 40px 20px;
+            max-width: 500px;
+            margin: auto;
+        }
+        .contact-form input, .contact-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .contact-form button {
+            padding: 8px 20px;
+            font-size: 14px;
+        }
+        body {
+    background-color: #ffffff;
+    color: black;
+    font-family: Arial, sans-serif;
 }
 
-#video-background {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* Ensures the video covers the entire screen */
-    z-index: -1; /* Keeps the video behind other content */
-}
-
-.content {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+.contact-container {
     text-align: center;
-    color: white;
-    z-index: 1; /* Ensures the content stays above the video */
+    padding: 50px 0;
 }
 
-h1 {
-    font-size: 3rem;
+/* Contact Box */
+.contact-box {
+    max-width: 650px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+    padding: 30px;
+    margin: auto;
+}
+
+/* Headings */
+.contact-box h2 {
+    font-weight: bold;
+    letter-spacing: 2px;
+    color: black;
     margin-bottom: 20px;
 }
 
-p {
-    font-size: 1.5rem;
+/* Paragraph */
+.contact-box p {
+    margin-bottom: 20px;
 }
 
-        .hero h2 {
-            display: flex;
-            height: 100;
- 
+/* Form Styling */
+.contact-form .form-control {
+    background-color: #ffffff;
+    color: black;
+    border: 2px solid black;
+    margin-bottom: 15px;
+    padding: 10px;
+    border-radius: 5px;
+}
 
-        }
+/* Button Styling */
+.contact-form .btn {
+    background-color: black;
+    color: white;
+    border-radius: 50px;
+    font-weight: bold;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
 
-        .hero p {
-            font-size: 1.5rem;
-        }
-
-        footer {
-            background: #000;
-            color: #fff;
-            text-align: center;
-            padding: 20px 0;
-            margin-top: 50px;
-        }
-
-        footer p {
-            margin: 0;
-        }
-
-        .product:hover {
-            transform: scale(1.05);
-        }
-
-        .product img {
-            height: 200px;
-            object-fit: cover;
-        }
-
-        .nav :hover {
-            color: burlywood;
-        }
+.contact-form .btn:hover {
+    background-color: #333;
+}
     </style>
 </head>
-<body>
-    <header class="bg-light text-center py-3">
-        <h1 class="display-4">ROLEX WATCHES</h1>
-    </header>
-
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container">
-            <a class="navbar-brand" href="#">Rolex</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#products">Products</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#cart">Cart (<span id="cart-count">0</span>)</a></li>
-                </ul>
+<body><!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Rolex Watches</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+        <style>
+            /* Video Section */
+            .video-section {
+                position: relative;
+                width: 100%;
+                height: 500px;
+                overflow: hidden;
+            }
+            .video-section video {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                position: absolute;
+                top: 0;
+                left: 0;
+                z-index: -1;
+            }
+            .video-overlay {
+                position: relative;
+                text-align: center;
+                color: white;
+                padding: 150px 20px;
+                font-size: 2rem;
+                font-weight: bold;
+            }
+            
+            /* Product Styling */
+            .product img {
+                width: 100%; 
+                height: 250px;
+                object-fit: cover;
+                border-radius: 10px; 
+                transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+            }
+            .product img:hover {
+                transform: scale(1.05);
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            }
+            .product h4, .product p, .product button {
+                margin-top: 10px;
+            }
+            .nav-link:hover {
+                color: burlywood !important;
+            }
+    
+            /* Ensure consistent spacing between product rows */
+            .row {
+                row-gap: 20px;
+            }
+    
+            /* Contact Section Styling */
+            .contact-container {
+                text-align: center;
+                padding: 50px 0;
+            }
+            .contact-box {
+                max-width: 650px;
+                background-color: white;
+                border-radius: 10px;
+                box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+                padding: 30px;
+                margin: auto;
+            }
+            .contact-form .form-control {
+                background-color: #ffffff;
+                color: black;
+                border: 2px solid black;
+                margin-bottom: 15px;
+                padding: 10px;
+                border-radius: 5px;
+            }
+            .contact-form .btn {
+                background-color: black;
+                color: white;
+                border-radius: 50px;
+                font-weight: bold;
+                padding: 10px 20px;
+                border: none;
+                cursor: pointer;
+                transition: 0.3s ease;
+            }
+            .contact-form .btn:hover {
+                background-color: #333;
+            }
+            
+        </style>
+    </head>
+    <body>
+        <header class="bg-light text-center py-3">
+            <h1 class="display-4">ROLEX WATCHES</h1>
+        </header>
+    
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm">
+            <div class="container">
+                <a class="navbar-brand fw-bold" href="#" style="color: #d4af37;">Rolex</a>
+                <button class="navbar-toggler rounded-pill border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item"><a class="nav-link" href="#Home">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#product-list">Products</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#cart">Cart (<span id="cart-count">0</span>)</a></li>
+                    </ul>
+                </div>
             </div>
-        </div>
-    </nav>
-<div>
-    <div class="video-container">
-        <video autoplay muted loop id="video-background">
-            <source src="./videoplayback.webm" type="video/webm">
-            <!-- You can also add mp4 or other formats for browser compatibility -->
-            <source src="./videoplayback.webm" type="video/mp4">
+        </nav>
+    
+
+    <!-- Home Section with Video -->
+    <section id="home" class="video-section">
+        <video autoplay muted loop>
+            <source src="./videoplayback (1).webm" type="video/webm">
+            <source src="./videoplayback (1).mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
-    </div>
+        <div class="video-overlay">Welcome to Rolex Luxury Watches</div>
+    </section>
 
+    <!-- About Us -->
     <section id="about" class="bg-light py-5">
         <div class="container">
             <h2 class="text-center mb-4">About Us</h2>
@@ -128,365 +269,182 @@ p {
                 For over a century, Rolex has epitomized the art of fine watchmaking. Each timepiece is a testament to unparalleled expertise, combining state-of-the-art technology with exquisite design. From professional divers to astronauts, adventurers, and global icons, Rolex watches have accompanied individuals on their journey to greatness..</p>
         </div>
     </section>
-    <section class="container my-5" id="products">
-        <h2 class="text-center mb-4">Our Products</h2>
-        <div class="row g-4">
-            <!-- Product 1 -->
-            <div class="col-md-4 col-lg-3">
-                <div class="card product h-100">
-                    <img src="./Rolex1.jpg" class="card-img-top" alt="Rolex Submariner">
-                    <div class="card-body text-center">
-                        <h5 class="card-title">Rolex Submariner</h5>
-                        <p class="card-text">$12,000</p>
-                        <div class="quantity-controls d-flex justify-content-center align-items-center mb-2">
-                            <button class="btn btn-sm btn-outline-primary decrease">-</button>
-                            <span class="mx-2 quantity"></span>
-                            <button class="btn btn-sm btn-outline-primary increase">+</button>
-                        </div>
-                        <button class="btn btn-primary add-to-cart" data-product="Rolex Submariner" data-price="12000">
-                            Add to Cart
-                        </button>
-                    </div>
+
+    <div class="container mt-5">
+        <h2 class="text-center">Explore Our Products</h2>
+        <div class="row gy-4" id="product-list">
+            <!-- Product Items -->
+            <div class="col-md-4">
+                <div class="product text-center">
+                    <img src="Rolex1.jpg" alt="Rolex GMT Master">
+                    <h4>Rolex GMT Master</h4>
+                    <p>Price: $12,000</p>
+                    <button class="btn btn-primary add-to-cart" data-product="Rolex GMT Master" data-price="12000">Add to Cart</button>
+                    <button class="btn btn-success buy-now" data-product="Rolex GMT Master">Buy Now</button>
                 </div>
             </div>
 
-            <!-- Product 2 -->
-            <div class="col-md-4 col-lg-3">
-                <div class="card product h-100">
-                    <img src="./Rolex2.jpg" class="card-img-top" alt="Rolex Daytona">
-                    <div class="card-body text-center">
-                        <h5 class="card-title">Rolex Daytona</h5>
-                        <p class="card-text">$15,000</p>
-                        <div class="quantity-controls d-flex justify-content-center align-items-center mb-2">
-                            <button class="btn btn-sm btn-outline-primary decrease">-</button>
-                            <span class="mx-2 quantity">0</span>
-                            <button class="btn btn-sm btn-outline-primary increase">+</button>
-                        </div>
-                        <button class="btn btn-primary add-to-cart" data-product="Rolex Daytona" data-price="15000">
-                            Add to Cart
-                        </button>
-                    </div>
+            <div class="col-md-4">
+                <div class="product text-center">
+                    <img src="Rolex10.jpg" alt="Rolex Daytona">
+                    <h4>Rolex Daytona</h4>
+                    <p>Price: $15,000</p>
+                    <button class="btn btn-primary add-to-cart" data-product="Rolex Daytona" data-price="15000">Add to Cart</button>
+                    <button class="btn btn-success buy-now" data-product="Rolex Daytona">Buy Now</button>
                 </div>
             </div>
-
-            <!-- Product 3 -->
-            <div class="col-md-4 col-lg-3">
-                <div class="card product h-100">
-                    <img src="./istockphoto-458066987-612x612.jpg" class="card-img-top" alt="Rolex GMT Master">
-                    <div class="card-body text-center">
-                        <h5 class="card-title">Rolex GMT Master</h5>
-                        <p class="card-text">$18,000</p>
-                        <div class="quantity-controls d-flex justify-content-center align-items-center mb-2">
-                            <button class="btn btn-sm btn-outline-primary decrease">-</button>
-                            <span class="mx-2 quantity">0</span>
-                            <button class="btn btn-sm btn-outline-primary increase">+</button>
-                        </div>
-                        <button class="btn btn-primary add-to-cart" data-product="Rolex GMT Master" data-price="18000">
-                            Add to Cart
-                        </button>
-                    </div>
+            <div class="col-md-4">
+                <div class="product text-center">
+                    <img src="Rolex2.jpg" alt="Rolex submariner">
+                    <h4>Rolex submariner</h4>
+                    <p>Price: $15,000</p>
+                    <button class="btn btn-primary add-to-cart" data-product="Rolex submariner" data-price="15000">Add to Cart</button>
+                    <button class="btn btn-success buy-now" data-product="Rolex submariner">Buy Now</button>
                 </div>
             </div>
-            
-            <div class="col-md-4 col-lg-3">
-                <div class="card product h-100">
-                    <img src="./Rolex5.jpg" class="card-img-top" alt="Rolex GMT Master">
-                    <div class="card-body text-center">
-                        <h5 class="card-title">submariner</h5>
-                        <p class="card-text">$18,000</p>
-                        <div class="quantity-controls d-flex justify-content-center align-items-center mb-2">
-                            <button class="btn btn-sm btn-outline-primary decrease">-</button>
-                            <span class="mx-2 quantity">0</span>
-                            <button class="btn btn-sm btn-outline-primary increase">+</button>
-                        </div>
-                        <button class="btn btn-primary add-to-cart" data-product="Rolex GMT Master" data-price="18000">
-                            Add to Cart
-                        </button>
-                    </div>
+            <div class="col-md-4">
+                <div class="product text-center">
+                    <img src="Rolex5.jpg" alt="submariner">
+                    <h4>submariner</h4>
+                    <p>Price: $15,000</p>
+                    <button class="btn btn-primary add-to-cart" data-product="submariner" data-price="15000">Add to Cart</button>
+                    <button class="btn btn-success buy-now" data-product="submariner">Buy Now</button>
                 </div>
             </div>
-            <div class="col-md-4 col-lg-3">
-                <div class="card product h-100">
-                    <img src="./Rolex6.jpg" class="card-img-top" alt="Rolex GMT Master">
-                    <div class="card-body text-center">
-                        <h5 class="card-title">GMT-master</h5>
-                        <p class="card-text">$15,000</p>
-                        <div class="quantity-controls d-flex justify-content-center align-items-center mb-2">
-                            <button class="btn btn-sm btn-outline-primary decrease">-</button>
-                            <span class="mx-2 quantity">0</span>
-                            <button class="btn btn-sm btn-outline-primary increase">+</button>
-                        </div>
-                        <button class="btn btn-primary add-to-cart" data-product="Rolex GMT Master" data-price="18000">
-                            Add to Cart
-                        </button>
-                    </div>
+            <div class="col-md-4">
+                <div class="product text-center">
+                    <img src="Rolex6.jpg" alt="Master RMD">
+                    <h4>Master RMD</h4>
+                    <p>Price: $15,000</p>
+                    <button class="btn btn-primary add-to-cart" data-product="Master RMD" data-price="15000">Add to Cart</button>
+                    <button class="btn btn-success buy-now" data-product="Master RMD">Buy Now</button>
                 </div>
             </div>
-            <div class="col-md-4 col-lg-3">
-                <div class="card product h-100">
-                    <img src="./Rolex7.jpg" class="card-img-top" alt="Rolex GMT Master">
-                    <div class="card-body text-center">
-                        <h5 class="card-title">day-date</h5>
-                        <p class="card-text">$24,000</p>
-                        <div class="quantity-controls d-flex justify-content-center align-items-center mb-2">
-                            <button class="btn btn-sm btn-outline-primary decrease">-</button>
-                            <span class="mx-2 quantity">0</span>
-                            <button class="btn btn-sm btn-outline-primary increase">+</button>
-                        </div>
-                        <button class="btn btn-primary add-to-cart" data-product="Rolex GMT Master" data-price="18000">
-                            Add to Cart
-                        </button>
-                    </div>
+            <div class="col-md-4">
+                <div class="product text-center">
+                    <img src="Rolex7.jpg" alt="day date">
+                    <h4>day date</h4>
+                    <p>Price: $15,000</p>
+                    <button class="btn btn-primary add-to-cart" data-product="day date" data-price="15000">Add to Cart</button>
+                    <button class="btn btn-success buy-now" data-product="day date">Buy Now</button>
                 </div>
             </div>
-            <div class="col-md-4 col-lg-3">
-                <div class="card product h-100">
-                    <img src="./istockphoto-458066987-612x612.jpg" class="card-img-top" alt="Rolex GMT Master">
-                    <div class="card-body text-center">
-                        <h5 class="card-title">cosmograph daytona</h5>
-                        <p class="card-text">$125,000</p>
-                        <div class="quantity-controls d-flex justify-content-center align-items-center mb-2">
-                            <button class="btn btn-sm btn-outline-primary decrease">-</button>
-                            <span class="mx-2 quantity">0</span>
-                            <button class="btn btn-sm btn-outline-primary increase">+</button>
-                        </div>
-                        <button class="btn btn-primary add-to-cart" data-product="Rolex GMT Master" data-price="18000">
-                            Add to Cart
-                        </button>
-                    </div>
+            <div class="col-md-4">
+                <div class="product text-center">
+                    <img src="Rolex8.jpg" alt="cosmogarph dayton">
+                    <h4>cosmogarph dayton</h4>
+                    <p>Price: $20,000</p>
+                    <button class="btn btn-primary add-to-cart" data-product="cosmogarph dayton" data-price="15000">Add to Cart</button>
+                    <button class="btn btn-success buy-now" data-product="cosmogarph dayton">Buy Now</button>
                 </div>
             </div>
-            <div class="col-md-4 col-lg-3">
-                <div class="card product h-100">
-                    <img src="./Rolex8.jpg" class="card-img-top" alt="Rolex GMT Master">
-                    <div class="card-body text-center">
-                        <h5 class="card-title">oyster perpetual</h5>
-                        <p class="card-text">$20,000</p>
-                        <div class="quantity-controls d-flex justify-content-center align-items-center mb-2">
-                            <button class="btn btn-sm btn-outline-primary decrease">-</button>
-                            <span class="mx-2 quantity">0</span>
-                            <button class="btn btn-sm btn-outline-primary increase">+</button>
-                        </div>
-                        <button class="btn btn-primary add-to-cart" data-product="Rolex GMT Master" data-price="18000">
-                            Add to Cart
-                        </button>
-                    </div>
+            <div class="col-md-4">
+                <div class="product text-center">
+                    <img src="Rolex9.jpg" alt="Rolex oyster">
+                    <h4>Rolex oyster</h4>
+                    <p>Price: $16,000</p>
+                    <button class="btn btn-primary add-to-cart" data-product="Rolex oyster" data-price="15000">Add to Cart</button>
+                    <button class="btn btn-success buy-now" data-product="Rolex oyster">Buy Now</button>
                 </div>
             </div>
-            <div class="col-md-4 col-lg-3">
-                <div class="card product h-100">
-                    <img src="./Rolex9.jpg" class="card-img-top" alt="Rolex GMT Master">
-                    <div class="card-body text-center">
-                        <h5 class="card-title">sea-dweller</h5>
-                        <p class="card-text">$26,000</p>
-                        <div class="quantity-controls d-flex justify-content-center align-items-center mb-2">
-                            <button class="btn btn-sm btn-outline-primary decrease">-</button>
-                            <span class="mx-2 quantity">0</span>
-                            <button class="btn btn-sm btn-outline-primary increase">+</button>
-                        </div>
-                        <button class="btn btn-primary add-to-cart" data-product="Rolex GMT Master" data-price="18000">
-                            Add to Cart
-                        </button>
-                    </div>
+            <div class="col-md-4">
+                <div class="product text-center">
+                    <img src="roll1.jpg" alt="Rolex perpetual">
+                    <h4>Rolex perpetual</h4>
+                    <p>Price: $15,000</p>
+                    <button class="btn btn-primary add-to-cart" data-product="Rolex perpetual" data-price="15000">Add to Cart</button>
+                    <button class="btn btn-success buy-now" data-product="Rolex perpetual">Buy Now</button>
                 </div>
             </div>
-            <div class="col-md-4 col-lg-3">
-                <div class="card product h-100">
-                    <img src="./Rolex10.jpg" class="card-img-top" alt="Rolex GMT Master">
-                    <div class="card-body text-center">
-                        <h5 class="card-title">air-king</h5>
-                        <p class="card-text">$18,000</p>
-                        <div class="quantity-controls d-flex justify-content-center align-items-center mb-2">
-                            <button class="btn btn-sm btn-outline-primary decrease">-</button>
-                            <span class="mx-2 quantity">0</span>
-                            <button class="btn btn-sm btn-outline-primary increase">+</button>
-                        </div>
-                        <button class="btn btn-primary add-to-cart" data-product="Rolex GMT Master" data-price="18000">
-                            Add to Cart
-                        </button>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 col-lg-3">
-                <div class="card product h-100">
-                    <img src="./Rolex11.jpg" class="card-img-top" alt="Rolex GMT Master">
-                    <div class="card-body text-center">
-                        <h5 class="card-title">explorer</h5>
-                        <p class="card-text">$30,000</p>
-                        <div class="quantity-controls d-flex justify-content-center align-items-center mb-2">
-                            <button class="btn btn-sm btn-outline-primary decrease">-</button>
-                            <span class="mx-0 quantity">0</span>
-                            <button class="btn btn-sm btn-outline-primary increase">+</button>
-                        </div>
-                        <button class="btn btn-primary add-to-cart" data-product="Rolex GMT Master" data-price="18000">
-                            Add to Cart
-                        </button>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 col-lg-3">
-                <div class="card product h-100">
-                    <img src="./images.jpg" class="card-img-top" alt="Rolex GMT Master">
-                    <div class="card-body text-center">
-                        <h5 class="card-title">1908</h5>
-                        <p class="card-text">$18,000</p>
-                        <div class="quantity-controls d-flex justify-content-center align-items-center mb-2">
-                            <button class="btn btn-sm btn-outline-primary decrease">-</button>
-                            <span class="mx-0 quantity">0</span>
-                            <button class="btn btn-sm btn-outline-primary increase">+</button>
-                        </div>
-                        <button class="btn btn-primary add-to-cart" data-product="Rolex GMT Master" data-price="18000">
-                            Add to Cart
-                        </button>
-                    </div>
-                </div>
-            </div>
-
         </div>
-    </section>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            // Apply functionality to all product cards
-            document.querySelectorAll('.product').forEach((productCard) => {
-                const quantityEl = productCard.querySelector('.quantity');
-                const decreaseBtn = productCard.querySelector('.decrease');
-                const increaseBtn = productCard.querySelector('.increase');
-                const addToCartBtn = productCard.querySelector('.add-to-cart');
-                let quantity = 0; // Default quantity
-
-                // Increase button functionality
-                increaseBtn.addEventListener('click', () => {
-                    quantity++;
-                    quantityEl.textContent = quantity;
-                });
-
-                // Decrease button functionality
-                decreaseBtn.addEventListener('click', () => {
-                    if (quantity > 0) {
-                        quantity--;
-                        quantityEl.textContent = quantity;
-                    }
-                });
-
-                // Add to Cart functionality
-                addToCartBtn.addEventListener('click', () => {
-                    const productName = addToCartBtn.getAttribute('data-product');
-                    const productPrice = parseFloat(addToCartBtn.getAttribute('data-price'));
-                    const totalCost = productPrice * quantity;
-
-                    alert(`${quantity} ${productName}(s) added to cart. Total: $${totalCost.toLocaleString()}`);
-                    // Add your cart update logic here
-                });
-            });
-        });
-    </script>
-
-    
+    </div>
     
 
-    <section id="contact" class="py-5">
-       
-        <div class="container">
-            <h2 class="text-center mb-4">Contact Us</h2>
-            <div>
-                contect number : +1 8190035124
-                email : rolex@2025
-            </div>
-            <form>
-                <div class="mb-3">
-                    <label for="name" class="form-label">Name</label>
-                    <input type="text" class="form-control" id="name" required>
-                </div>
-                <div class="mb-3">
-                    <label for="email" class="form-label">Email</label>
-                    <input type="email" class="form-control" id="email" required>
-                </div>
-                <div class="mb-3">
-                    <label for="message" class="form-label">Message</label>
-                    <textarea class="form-control" id="message" rows="4" required></textarea>
-                </div>
-                <button type="submit" class="btn btn-primary">Send Message</button>
-            </form>
-        </div>
-    </section>
 
-    <section id="cart" class="py-5">
+   
+    <section id="contact" class="contact-container">
         <div class="container">
-            <h2 class="text-center mb-4">Your Cart</h2>
-            <ul id="cart-items" class="list-group mb-3"></ul>
-            <div class="text-end">
-                <strong>Total: $<span id="cart-total">0</span></strong>
+            <div class="contact-box">
+                <h2>CONTACT US</h2>
+                <p>Experience timeless elegance. Connect with us for inquiries or exclusive consultations.</p>
+                <p><strong>Contact Number:</strong> +1 8190035124</p>
+                <p><strong>Email:</strong> rolex@2025.com</p>
+                <div class="contact-form">
+                    <form action="https://formspree.io/f/xnnpalno" method="POST">
+                        <input type="text" name="name" placeholder="Full Name" class="form-control" required>
+                        <input type="email" name="email" placeholder="Email Address" class="form-control" required>
+                        <input type="text" name="phone" placeholder="Phone Number" class="form-control" required>
+                        <textarea name="message" placeholder="Your Message" rows="4" class="form-control" required></textarea>
+                        <button type="submit" class="btn">Send Message</button>
+                    </form>
+                </div>
             </div>
         </div>
     </section>
+    
 
+    <!-- Shopping Cart -->
+    <div class="container mt-5">
+        <h3>Shopping Cart</h3>
+        <ul id="cart" class="list-group"></ul>
+        <p><strong>Total Price:</strong> $<span id="total-price">0</span></p>
+    </div>
     <footer class="bg-dark text-white text-center py-3">
         <p>&copy; 2025 Rolex Watches. All rights reserved.</p>
     </footer>
 
-    <!-- Add this script -->
+    <!-- JavaScript -->
     <script>
-        const cart = [];
-        const cartCount = document.getElementById('cart-count');
-        const cartItems = document.getElementById('cart-items');
-        const cartTotal = document.getElementById('cart-total');
+        const cart = {};
 
-        document.querySelectorAll('.add-to-cart').forEach(button => {
-            button.addEventListener('click', () => {
-                const product = button.getAttribute('data-product');
-                const price = parseFloat(button.getAttribute('data-price'));
-                if (!product || isNaN(price)) return;
-
-                const existingItem = cart.find(item => item.product === product);
-                if (existingItem) {
-                    existingItem.quantity++;
-                } else {
-                    cart.push({ product, price, quantity: 0 });
-                }
-
-                updateCart();
-            });
+        document.querySelectorAll(".add-to-cart").forEach(btn => btn.onclick = () => {
+            const product = btn.dataset.product;
+            const price = Number(btn.dataset.price);
+            
+            if (!cart[product]) {
+                cart[product] = { qty: 0, price: price };
+            }
+            cart[product].qty += 1;
+            
+            updateCart();
         });
 
         function updateCart() {
-            cartCount.textContent = cart.reduce((total, item) => total + item.quantity, 0);
-            cartItems.innerHTML = '';
+            const cartList = document.getElementById("cart");
+            const totalPriceElem = document.getElementById("total-price");
+            const cartCountElem = document.getElementById("cart-count");
+
+            cartList.innerHTML = "";
             let total = 0;
+            let totalItems = 0;
 
-            cart.forEach((item, index) => {
-                const li = document.createElement('li');
-                li.className = 'list-group-item d-flex justify-content-between align-items-center';
+            Object.entries(cart).forEach(([product, details]) => {
+                const itemTotal = details.qty * details.price;
+                total += itemTotal;
+                totalItems += details.qty;
 
-                li.innerHTML = `
-                    ${item.product} - $${item.price.toFixed(2)} x ${item.quantity}
-                    <div>
-                        <button class="btn btn-sm btn-danger me-2" onclick="decreaseQuantity(${index})">-</button>
-                        <button class="btn btn-sm btn-success" onclick="increaseQuantity(${index})">+</button>
-                    </div>
-                `;
-
-                cartItems.appendChild(li);
-                total += item.price * item.quantity;
+                cartList.innerHTML += `<li class="list-group-item">
+                    ${product} - Quantity: ${details.qty} - $${itemTotal}
+                    <button class="btn btn-danger btn-sm ms-2" onclick="changeQty('${product}', -1)">-</button>
+                    <button class="btn btn-success btn-sm ms-1" onclick="changeQty('${product}', 1)">+</button>
+                </li>`;
             });
 
-            cartTotal.textContent = total.toFixed(2);
+            totalPriceElem.textContent = total;
+            cartCountElem.textContent = totalItems;
         }
 
-        function increaseQuantity(index) {
-            cart[index].quantity++;
-            updateCart();
-        }
-
-        function decreaseQuantity(index) {
-            if (cart[index].quantity > 1) {
-                cart[index].quantity--;
-            } else {
-                cart.splice(index, 1);
+        function changeQty(product, amount) {
+            if (!cart[product]) return;
+            
+            cart[product].qty += amount;
+            if (cart[product].qty <= 0) {
+                delete cart[product];
             }
+
             updateCart();
         }
     </script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+
 </body>
 </html>
