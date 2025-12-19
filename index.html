@@ -3,449 +3,1242 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rolex Watches</title>
+    <title>Rolex | Luxury Watches</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        /* Video Section */
-        .video-section {
-            position: relative;
-            width: 100%;
-            height: 500px;
-            overflow: hidden;
+        :root {
+            --primary-gold: #D4AF37;
+            --secondary-gold: #F5D76E;
+            --dark-bg: #0A0A0A;
+            --light-bg: #F8F9FA;
+            --text-dark: #212529;
+            --text-light: #6C757D;
+            --border-color: #E9ECEF;
         }
-        .video-section video {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--text-dark);
+            line-height: 1.6;
+            background-color: var(--light-bg);
+        }
+
+        /* Header */
+        .main-header {
+            background: linear-gradient(135deg, var(--dark-bg) 0%, #1a1a1a 100%);
+            padding: 1.5rem 0;
+            border-bottom: 3px solid var(--primary-gold);
+        }
+
+        .brand-title {
+            color: white;
+            font-size: 2.8rem;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin: 0;
+        }
+
+        .brand-subtitle {
+            color: var(--primary-gold);
+            font-size: 0.9rem;
+            letter-spacing: 8px;
+            text-transform: uppercase;
+            margin-top: -5px;
+        }
+
+        /* Modern Navbar */
+        .modern-navbar {
+            background-color: white !important;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
+            padding: 1rem 0;
+            transition: all 0.3s ease;
+        }
+
+        .modern-navbar.scrolled {
+            padding: 0.5rem 0;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar-brand {
+            color: var(--dark-bg) !important;
+            font-weight: 700;
+            font-size: 1.8rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar-brand i {
+            color: var(--primary-gold);
+            margin-right: 8px;
+        }
+
+        .nav-link {
+            color: var(--text-dark) !important;
+            font-weight: 500;
+            padding: 0.5rem 1.2rem !important;
+            margin: 0 0.2rem;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-link:hover {
+            color: var(--primary-gold) !important;
+            background-color: rgba(212, 175, 55, 0.1);
+        }
+
+        .nav-link.active {
+            color: var(--primary-gold) !important;
+            background-color: rgba(212, 175, 55, 0.1);
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 2px;
+            background: var(--primary-gold);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 70%;
+        }
+
+        .cart-badge {
+            background: linear-gradient(135deg, var(--primary-gold) 0%, var(--secondary-gold) 100%);
+            color: var(--dark-bg);
+            font-weight: 600;
+            padding: 2px 8px;
+            border-radius: 10px;
+            font-size: 0.75rem;
+        }
+
+        /* Hero Video */
+        .hero-video {
+            position: relative;
+            height: 85vh;
+            min-height: 600px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-video video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            transform: translate(-50%, -50%);
+            z-index: 1;
+        }
+
+        .video-overlay {
             position: absolute;
             top: 0;
             left: 0;
-            z-index: -1;
-        }
-        .video-overlay {
-            position: relative;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(10, 10, 10, 0.7) 0%, rgba(10, 10, 10, 0.4) 100%);
+            z-index: 2;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             text-align: center;
             color: white;
-            padding: 150px 20px;
-            font-size: 2rem;
-            font-weight: bold;
+            padding: 2rem;
         }
-        
-        /* Product Styling */
-        .product img {
-            width: 100%; 
+
+        .hero-content {
+            max-width: 800px;
+            z-index: 3;
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero-subtitle {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 2rem;
+            font-weight: 300;
+        }
+
+        .cta-button {
+            background: linear-gradient(135deg, var(--primary-gold) 0%, var(--secondary-gold) 100%);
+            color: var(--dark-bg);
+            border: none;
+            padding: 1rem 2.5rem;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 30px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(212, 175, 55, 0.3);
+            color: var(--dark-bg);
+        }
+
+        /* Sections */
+        .section {
+            padding: 5rem 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 3rem;
+            color: var(--dark-bg);
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary-gold) 0%, var(--secondary-gold) 100%);
+        }
+
+        /* About Section */
+        .about-section {
+            background-color: white;
+        }
+
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .about-text {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+
+        /* Products Section */
+        .product-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            height: 100%;
+            border: 1px solid var(--border-color);
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+        }
+
+        .product-image {
+            width: 100%;
             height: 250px;
             object-fit: cover;
-            border-radius: 10px; 
-            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+            transition: transform 0.5s ease;
         }
-        .product img:hover {
+
+        .product-card:hover .product-image {
             transform: scale(1.05);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-        }
-        .product h4, .product p, .product button {
-            margin-top: 10px;
-        }
-        .nav-link:hover {
-            color: burlywood !important;
         }
 
-        /* Ensure consistent spacing between product rows */
-        .row {
-            row-gap: 20px;
+        .product-info {
+            padding: 1.5rem;
         }
+
+        .product-name {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--dark-bg);
+        }
+
+        .product-price {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--primary-gold);
+            margin-bottom: 1rem;
+        }
+
+        .product-buttons {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .btn-add-to-cart {
+            background: var(--dark-bg);
+            color: white;
+            border: none;
+            padding: 0.6rem 1.5rem;
+            border-radius: 25px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            flex: 1;
+            min-width: 120px;
+        }
+
+        .btn-add-to-cart:hover {
+            background: #333;
+            transform: translateY(-2px);
+        }
+
+        .btn-buy-now {
+            background: linear-gradient(135deg, var(--primary-gold) 0%, var(--secondary-gold) 100%);
+            color: var(--dark-bg);
+            border: none;
+            padding: 0.6rem 1.5rem;
+            border-radius: 25px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            flex: 1;
+            min-width: 120px;
+        }
+
+        .btn-buy-now:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
+        }
+
+        /* Contact Section */
+        .contact-section {
+            background: linear-gradient(135deg, var(--dark-bg) 0%, #1a1a1a 100%);
+            color: white;
+        }
+
         .contact-container {
-            padding: 40px 20px;
-            max-width: 500px;
-            margin: auto;
+            max-width: 1000px;
+            margin: 0 auto;
         }
-        .contact-form input, .contact-form textarea {
+
+        .contact-box {
+            background: white;
+            border-radius: 20px;
+            padding: 3rem;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .contact-title {
+            color: var(--dark-bg);
+            font-size: 2.2rem;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .contact-item {
+            text-align: center;
+            padding: 1.5rem;
+            background: var(--light-bg);
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .contact-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .contact-item i {
+            font-size: 2rem;
+            color: var(--primary-gold);
+            margin-bottom: 1rem;
+        }
+
+        .contact-item h4 {
+            color: var(--dark-bg);
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .contact-item p {
+            color: var(--text-light);
+            margin: 0;
+        }
+
+        .contact-form .form-control {
+            border: 2px solid var(--border-color);
+            border-radius: 10px;
+            padding: 1rem;
+            margin-bottom: 1.5rem;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+        }
+
+        .contact-form .form-control:focus {
+            border-color: var(--primary-gold);
+            box-shadow: 0 0 0 0.25rem rgba(212, 175, 55, 0.25);
+        }
+
+        .form-button {
+            background: linear-gradient(135deg, var(--primary-gold) 0%, var(--secondary-gold) 100%);
+            color: var(--dark-bg);
+            border: none;
+            padding: 1rem 2.5rem;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 25px;
+            transition: all 0.3s ease;
             width: 100%;
-            padding: 10px;
-            margin: 10px 0;
-            border: 1px solid #ccc;
-            border-radius: 5px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
-        .contact-form button {
-            padding: 8px 20px;
-            font-size: 14px;
+
+        .form-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(212, 175, 55, 0.3);
         }
-        body {
-    background-color: #ffffff;
-    color: black;
-    font-family: Arial, sans-serif;
-}
 
-.contact-container {
-    text-align: center;
-    padding: 50px 0;
-}
+        /* Cart Modal */
+        .cart-modal {
+            position: fixed;
+            top: 0;
+            right: -400px;
+            width: 400px;
+            height: 100vh;
+            background: white;
+            box-shadow: -5px 0 25px rgba(0, 0, 0, 0.1);
+            z-index: 1050;
+            transition: right 0.4s ease;
+            padding: 2rem;
+            overflow-y: auto;
+        }
 
-/* Contact Box */
-.contact-box {
-    max-width: 650px;
-    background-color: white;
-    border-radius: 10px;
-    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
-    padding: 30px;
-    margin: auto;
-}
+        .cart-modal.active {
+            right: 0;
+        }
 
-/* Headings */
-.contact-box h2 {
-    font-weight: bold;
-    letter-spacing: 2px;
-    color: black;
-    margin-bottom: 20px;
-}
+        .cart-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid var(--border-color);
+        }
 
-/* Paragraph */
-.contact-box p {
-    margin-bottom: 20px;
-}
+        .cart-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--dark-bg);
+            margin: 0;
+        }
 
-/* Form Styling */
-.contact-form .form-control {
-    background-color: #ffffff;
-    color: black;
-    border: 2px solid black;
-    margin-bottom: 15px;
-    padding: 10px;
-    border-radius: 5px;
-}
+        .close-cart {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--text-light);
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
 
-/* Button Styling */
-.contact-form .btn {
-    background-color: black;
-    color: white;
-    border-radius: 50px;
-    font-weight: bold;
-    padding: 10px 20px;
-    border: none;
-    cursor: pointer;
-    transition: 0.3s ease;
-}
+        .close-cart:hover {
+            color: var(--primary-gold);
+        }
 
-.contact-form .btn:hover {
-    background-color: #333;
-}
+        .cart-item {
+            display: flex;
+            align-items: center;
+            padding: 1rem 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .cart-item:last-child {
+            border-bottom: none;
+        }
+
+        .cart-item-image {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-right: 1rem;
+        }
+
+        .cart-item-info {
+            flex: 1;
+        }
+
+        .cart-item-name {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--dark-bg);
+        }
+
+        .cart-item-price {
+            color: var(--primary-gold);
+            font-weight: 600;
+        }
+
+        .cart-item-controls {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .quantity-btn {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            border: 1px solid var(--border-color);
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .quantity-btn:hover {
+            background: var(--light-bg);
+        }
+
+        .cart-total {
+            margin-top: 2rem;
+            padding-top: 1rem;
+            border-top: 2px solid var(--border-color);
+            text-align: right;
+        }
+
+        .total-label {
+            font-weight: 600;
+            color: var(--text-light);
+        }
+
+        .total-amount {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary-gold);
+        }
+
+        .checkout-btn {
+            width: 100%;
+            padding: 1rem;
+            background: linear-gradient(135deg, var(--primary-gold) 0%, var(--secondary-gold) 100%);
+            color: var(--dark-bg);
+            border: none;
+            border-radius: 25px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-top: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .checkout-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(212, 175, 55, 0.3);
+        }
+
+        .empty-cart {
+            text-align: center;
+            padding: 3rem 1rem;
+            color: var(--text-light);
+        }
+
+        .empty-cart i {
+            font-size: 3rem;
+            color: var(--border-color);
+            margin-bottom: 1rem;
+        }
+
+        /* Backdrop */
+        .modal-backdrop {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1040;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .modal-backdrop.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* Footer */
+        .main-footer {
+            background: var(--dark-bg);
+            color: white;
+            padding: 3rem 0 1.5rem;
+        }
+
+        .footer-content {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .footer-logo {
+            font-size: 2rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            background: var(--primary-gold);
+            color: var(--dark-bg);
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            text-align: center;
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.9rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .hero-title {
+                font-size: 2.8rem;
+            }
+            
+            .cart-modal {
+                width: 350px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.2rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1rem;
+            }
+            
+            .section {
+                padding: 3rem 0;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .cart-modal {
+                width: 100%;
+                right: -100%;
+            }
+            
+            .contact-box {
+                padding: 2rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .brand-title {
+                font-size: 2rem;
+            }
+            
+            .hero-video {
+                height: 70vh;
+                min-height: 500px;
+            }
+            
+            .cta-button {
+                padding: 0.8rem 2rem;
+                font-size: 0.9rem;
+            }
+            
+            .product-buttons {
+                flex-direction: column;
+            }
+            
+            .btn-add-to-cart,
+            .btn-buy-now {
+                width: 100%;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-fade-in {
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        .fade-in-delay-1 { animation-delay: 0.1s; }
+        .fade-in-delay-2 { animation-delay: 0.2s; }
+        .fade-in-delay-3 { animation-delay: 0.3s; }
+        .fade-in-delay-4 { animation-delay: 0.4s; }
+        .fade-in-delay-5 { animation-delay: 0.5s; }
+
+        /* Notification */
+        .notification {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: var(--dark-bg);
+            color: white;
+            padding: 1rem 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+            z-index: 1060;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transform: translateY(100px);
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+
+        .notification.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .notification i {
+            color: var(--primary-gold);
+        }
     </style>
 </head>
-<body><!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Rolex Watches</title>
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-        <style>
-            /* Video Section */
-            .video-section {
-                position: relative;
-                width: 100%;
-                height: 500px;
-                overflow: hidden;
-            }
-            .video-section video {
-                width: 100%;
-                height: 100%;
-                object-fit: cover;
-                position: absolute;
-                top: 0;
-                left: 0;
-                z-index: -1;
-            }
-            .video-overlay {
-                position: relative;
-                text-align: center;
-                color: white;
-                padding: 150px 20px;
-                font-size: 2rem;
-                font-weight: bold;
-            }
-            
-            /* Product Styling */
-            .product img {
-                width: 100%; 
-                height: 250px;
-                object-fit: cover;
-                border-radius: 10px; 
-                transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-            }
-            .product img:hover {
-                transform: scale(1.05);
-                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-            }
-            .product h4, .product p, .product button {
-                margin-top: 10px;
-            }
-            .nav-link:hover {
-                color: burlywood !important;
-            }
-    
-            /* Ensure consistent spacing between product rows */
-            .row {
-                row-gap: 20px;
-            }
-    
-            /* Contact Section Styling */
-            .contact-container {
-                text-align: center;
-                padding: 50px 0;
-            }
-            .contact-box {
-                max-width: 650px;
-                background-color: white;
-                border-radius: 10px;
-                box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
-                padding: 30px;
-                margin: auto;
-            }
-            .contact-form .form-control {
-                background-color: #ffffff;
-                color: black;
-                border: 2px solid black;
-                margin-bottom: 15px;
-                padding: 10px;
-                border-radius: 5px;
-            }
-            .contact-form .btn {
-                background-color: black;
-                color: white;
-                border-radius: 50px;
-                font-weight: bold;
-                padding: 10px 20px;
-                border: none;
-                cursor: pointer;
-                transition: 0.3s ease;
-            }
-            .contact-form .btn:hover {
-                background-color: #333;
-            }
-            
-        </style>
-    </head>
-    <body>
-        <header class="bg-light text-center py-3">
-            <h1 class="display-4">ROLEX WATCHES</h1>
-        </header>
-    
-        <!-- Navbar -->
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm">
-            <div class="container">
-                <a class="navbar-brand fw-bold" href="#" style="color: #d4af37;">Rolex</a>
-                <button class="navbar-toggler rounded-pill border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav ms-auto">
-                        <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#product-list">Products</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#cart">Cart (<span id="cart-count">0</span>)</a></li>
-                    </ul>
-                </div>
+<body>
+    <!-- Header -->
+    <header class="main-header">
+        <div class="container">
+            <div class="text-center">
+                <h1 class="brand-title">ROLEX</h1>
+                <p class="brand-subtitle">Swiss Watchmaking Excellence</p>
             </div>
-        </nav>
-    
+        </div>
+    </header>
 
-    <!-- Home Section with Video -->
-    <section id="home" class="video-section">
-        <video autoplay muted loop>
-            <source src="./videoplayback (1).webm" type="video/webm">
-            <source src="./videoplayback (1).mp4" type="video/mp4">
+    <!-- Modern Navbar -->
+    <nav class="navbar navbar-expand-lg modern-navbar fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <i class="fas fa-crown"></i>ROLEX
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#products">Collections</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link cart-trigger" href="#" id="cart-trigger">
+                            <i class="fas fa-shopping-bag"></i>
+                            <span class="cart-badge" id="cart-count">0</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Video Section -->
+    <section id="home" class="hero-video">
+        <video autoplay muted loop playsinline>
+            <source src="./videoplayback.webm" type="video/webm">
+            <source src="./videoplayback.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
-        <div class="video-overlay">Welcome to Rolex Luxury Watches</div>
+        <div class="video-overlay">
+            <div class="hero-content">
+                <h1 class="hero-title animate-fade-in">TIMELESS ELEGANCE</h1>
+                <p class="hero-subtitle animate-fade-in fade-in-delay-1">Crafting precision since 1905. Discover watches that transcend generations.</p>
+                <a href="#products" class="cta-button animate-fade-in fade-in-delay-2">
+                    Explore Collections <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
     </section>
 
-    <!-- About Us -->
-    <section id="about" class="bg-light py-5">
+    <!-- About Section -->
+    <section id="about" class="section about-section">
         <div class="container">
-            <h2 class="text-center mb-4">About Us</h2>
-            <p class="text-center">Rolex is a name synonymous with timeless luxury, precision, and innovation. Established in 1905, Rolex has been a pioneer in watchmaking, setting benchmarks for reliability, craftsmanship, and elegance.
-
-                For over a century, Rolex has epitomized the art of fine watchmaking. Each timepiece is a testament to unparalleled expertise, combining state-of-the-art technology with exquisite design. From professional divers to astronauts, adventurers, and global icons, Rolex watches have accompanied individuals on their journey to greatness..</p>
+            <h2 class="section-title">ABOUT ROLEX</h2>
+            <div class="about-content">
+                <p class="about-text">
+                    Founded in 1905, Rolex has established itself as the world's leading luxury watch brand. 
+                    Each timepiece is a masterpiece of Swiss craftsmanship, combining innovative technology 
+                    with timeless design.
+                </p>
+                <p class="about-text">
+                    From the depths of the ocean to the highest peaks, Rolex watches have accompanied 
+                    explorers, athletes, and visionaries on their most ambitious journeys. Our commitment 
+                    to excellence ensures that every watch meets the highest standards of precision, 
+                    durability, and beauty.
+                </p>
+                <div class="row mt-5">
+                    <div class="col-md-4 text-center animate-fade-in">
+                        <i class="fas fa-gem fa-3x mb-3" style="color: var(--primary-gold);"></i>
+                        <h5>Premium Materials</h5>
+                        <p class="text-muted">Only the finest materials are used in every timepiece</p>
+                    </div>
+                    <div class="col-md-4 text-center animate-fade-in fade-in-delay-1">
+                        <i class="fas fa-cogs fa-3x mb-3" style="color: var(--primary-gold);"></i>
+                        <h5>Swiss Precision</h5>
+                        <p class="text-muted">Meticulously crafted by expert watchmakers</p>
+                    </div>
+                    <div class="col-md-4 text-center animate-fade-in fade-in-delay-2">
+                        <i class="fas fa-award fa-3x mb-3" style="color: var(--primary-gold);"></i>
+                        <h5>Heritage</h5>
+                        <p class="text-muted">Over a century of innovation and excellence</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
-    <div class="container mt-5">
-        <h2 class="text-center">Explore Our Products</h2>
-        <div class="row gy-4" id="product-list">
-            <!-- Product Items -->
-            <div class="col-md-4">
-                <div class="product text-center">
-                    <img src="Rolex1.jpg" alt="Rolex GMT Master">
-                    <h4>Rolex GMT Master</h4>
-                    <p>Price: $12,000</p>
-                    <button class="btn btn-primary add-to-cart" data-product="Rolex GMT Master" data-price="12000">Add to Cart</button>
-                    <button class="btn btn-success buy-now" data-product="Rolex GMT Master">Buy Now</button>
-                </div>
-            </div>
-
-            <div class="col-md-4">
-                <div class="product text-center">
-                    <img src="Rolex10.jpg" alt="Rolex Daytona">
-                    <h4>Rolex Daytona</h4>
-                    <p>Price: $15,000</p>
-                    <button class="btn btn-primary add-to-cart" data-product="Rolex Daytona" data-price="15000">Add to Cart</button>
-                    <button class="btn btn-success buy-now" data-product="Rolex Daytona">Buy Now</button>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="product text-center">
-                    <img src="Rolex2.jpg" alt="Rolex submariner">
-                    <h4>Rolex submariner</h4>
-                    <p>Price: $15,000</p>
-                    <button class="btn btn-primary add-to-cart" data-product="Rolex submariner" data-price="15000">Add to Cart</button>
-                    <button class="btn btn-success buy-now" data-product="Rolex submariner">Buy Now</button>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="product text-center">
-                    <img src="Rolex5.jpg" alt="submariner">
-                    <h4>submariner</h4>
-                    <p>Price: $15,000</p>
-                    <button class="btn btn-primary add-to-cart" data-product="submariner" data-price="15000">Add to Cart</button>
-                    <button class="btn btn-success buy-now" data-product="submariner">Buy Now</button>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="product text-center">
-                    <img src="Rolex6.jpg" alt="Master RMD">
-                    <h4>Master RMD</h4>
-                    <p>Price: $15,000</p>
-                    <button class="btn btn-primary add-to-cart" data-product="Master RMD" data-price="15000">Add to Cart</button>
-                    <button class="btn btn-success buy-now" data-product="Master RMD">Buy Now</button>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="product text-center">
-                    <img src="Rolex7.jpg" alt="day date">
-                    <h4>day date</h4>
-                    <p>Price: $15,000</p>
-                    <button class="btn btn-primary add-to-cart" data-product="day date" data-price="15000">Add to Cart</button>
-                    <button class="btn btn-success buy-now" data-product="day date">Buy Now</button>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="product text-center">
-                    <img src="Rolex8.jpg" alt="cosmogarph dayton">
-                    <h4>cosmogarph dayton</h4>
-                    <p>Price: $20,000</p>
-                    <button class="btn btn-primary add-to-cart" data-product="cosmogarph dayton" data-price="15000">Add to Cart</button>
-                    <button class="btn btn-success buy-now" data-product="cosmogarph dayton">Buy Now</button>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="product text-center">
-                    <img src="Rolex9.jpg" alt="Rolex oyster">
-                    <h4>Rolex oyster</h4>
-                    <p>Price: $16,000</p>
-                    <button class="btn btn-primary add-to-cart" data-product="Rolex oyster" data-price="15000">Add to Cart</button>
-                    <button class="btn btn-success buy-now" data-product="Rolex oyster">Buy Now</button>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="product text-center">
-                    <img src="roll1.jpg" alt="Rolex perpetual">
-                    <h4>Rolex perpetual</h4>
-                    <p>Price: $15,000</p>
-                    <button class="btn btn-primary add-to-cart" data-product="Rolex perpetual" data-price="15000">Add to Cart</button>
-                    <button class="btn btn-success buy-now" data-product="Rolex perpetual">Buy Now</button>
-                </div>
+    <!-- Products Section -->
+    <section id="products" class="section" style="background-color: var(--light-bg);">
+        <div class="container">
+            <h2 class="section-title">OUR COLLECTIONS</h2>
+            <div class="row g-4" id="product-list">
+                <!-- Products will be dynamically loaded -->
             </div>
         </div>
-    </div>
-    
+    </section>
 
-
-   
-    <section id="contact" class="contact-container">
+    <!-- Contact Section -->
+    <section id="contact" class="section contact-section">
         <div class="container">
-            <div class="contact-box">
-                <h2>CONTACT US</h2>
-                <p>Experience timeless elegance. Connect with us for inquiries or exclusive consultations.</p>
-                <p><strong>Contact Number:</strong> +1 8190035124</p>
-                <p><strong>Email:</strong> rolex@2025.com</p>
-                <div class="contact-form">
-                    <form action="https://formspree.io/f/xnnpalno" method="POST">
-                        <input type="text" name="name" placeholder="Full Name" class="form-control" required>
-                        <input type="email" name="email" placeholder="Email Address" class="form-control" required>
-                        <input type="text" name="phone" placeholder="Phone Number" class="form-control" required>
-                        <textarea name="message" placeholder="Your Message" rows="4" class="form-control" required></textarea>
-                        <button type="submit" class="btn">Send Message</button>
+            <div class="contact-container">
+                <div class="contact-box animate-fade-in">
+                    <h2 class="contact-title">CONTACT US</h2>
+                    <p class="text-center text-muted mb-4">Experience timeless elegance. Connect with us for inquiries or exclusive consultations.</p>
+                    
+                    <div class="contact-info mb-5">
+                        <div class="contact-item animate-fade-in">
+                            <i class="fas fa-phone"></i>
+                            <h4>Phone</h4>
+                            <p>+1 (819) 003-5124</p>
+                        </div>
+                        <div class="contact-item animate-fade-in fade-in-delay-1">
+                            <i class="fas fa-envelope"></i>
+                            <h4>Email</h4>
+                            <p>contact@rolex.com</p>
+                        </div>
+                        <div class="contact-item animate-fade-in fade-in-delay-2">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <h4>Location</h4>
+                            <p>Geneva, Switzerland</p>
+                        </div>
+                    </div>
+                    
+                    <form id="contactForm" class="contact-form">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <input type="text" class="form-control" placeholder="Full Name" required>
+                            </div>
+                            <div class="col-md-6">
+                                <input type="email" class="form-control" placeholder="Email Address" required>
+                            </div>
+                        </div>
+                        <input type="tel" class="form-control" placeholder="Phone Number" required>
+                        <textarea class="form-control" rows="4" placeholder="Your Message" required></textarea>
+                        <button type="submit" class="form-button">
+                            <i class="fas fa-paper-plane me-2"></i> Send Message
+                        </button>
                     </form>
                 </div>
             </div>
         </div>
     </section>
-    
 
-    <!-- Shopping Cart -->
-    <div class="container mt-5">
-        <h3>Shopping Cart</h3>
-        <ul id="cart" class="list-group"></ul>
-        <p><strong>Total Price:</strong> $<span id="total-price">0</span></p>
+    <!-- Cart Modal -->
+    <div class="cart-modal" id="cart-modal">
+        <div class="cart-header">
+            <h3 class="cart-title">Your Cart</h3>
+            <button class="close-cart" id="close-cart">&times;</button>
+        </div>
+        <div id="cart-items">
+            <!-- Cart items will be dynamically loaded -->
+        </div>
+        <div class="cart-total">
+            <div class="d-flex justify-content-between align-items-center">
+                <span class="total-label">Total:</span>
+                <span class="total-amount">$<span id="total-price">0</span></span>
+            </div>
+            <button class="checkout-btn" id="checkout-btn">
+                Proceed to Checkout
+            </button>
+        </div>
     </div>
-    <footer class="bg-dark text-white text-center py-3">
-        <p>&copy; 2025 Rolex Watches. All rights reserved.</p>
+    <div class="modal-backdrop" id="modal-backdrop"></div>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-content">
+                <h3 class="footer-logo">ROLEX</h3>
+                <p class="text-muted mb-4">Swiss Watchmaking Excellence Since 1905</p>
+                <div class="social-links">
+                    <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Rolex Watches. All rights reserved. | This is a demonstration website</p>
+            </div>
+        </div>
     </footer>
+
+    <!-- Notification -->
+    <div class="notification" id="notification">
+        <i class="fas fa-check-circle"></i>
+        <span id="notification-text"></span>
+    </div>
 
     <!-- JavaScript -->
     <script>
-        const cart = {};
+        // Products Data
+        const products = [
+            { id: 1, name: "Rolex GMT Master", price: 12000, image: "Rolex1.jpg" },
+            { id: 2, name: "Rolex Daytona", price: 15000, image: "Rolex10.jpg" },
+            { id: 3, name: "Rolex Submariner", price: 15000, image: "Rolex2.jpg" },
+            { id: 4, name: "Submariner Date", price: 15000, image: "Rolex5.jpg" },
+            { id: 5, name: "Master RMD", price: 15000, image: "Rolex6.jpg" },
+            { id: 6, name: "Day-Date", price: 15000, image: "Rolex7.jpg" },
+            { id: 7, name: "Cosmograph Daytona", price: 20000, image: "Rolex8.jpg" },
+            { id: 8, name: "Rolex Oyster Perpetual", price: 16000, image: "Rolex9.jpg" },
+            { id: 9, name: "Rolex Perpetual", price: 15000, image: "roll1.jpg" }
+        ];
 
-        document.querySelectorAll(".add-to-cart").forEach(btn => btn.onclick = () => {
-            const product = btn.dataset.product;
-            const price = Number(btn.dataset.price);
+        // Initialize cart from localStorage
+        let cart = JSON.parse(localStorage.getItem('rolexCart')) || {};
+
+        // DOM Elements
+        const cartModal = document.getElementById('cart-modal');
+        const modalBackdrop = document.getElementById('modal-backdrop');
+        const cartTrigger = document.getElementById('cart-trigger');
+        const closeCart = document.getElementById('close-cart');
+        const cartItemsContainer = document.getElementById('cart-items');
+        const totalPriceElement = document.getElementById('total-price');
+        const cartCountElement = document.getElementById('cart-count');
+        const checkoutBtn = document.getElementById('checkout-btn');
+        const notification = document.getElementById('notification');
+        const notificationText = document.getElementById('notification-text');
+        const contactForm = document.getElementById('contactForm');
+
+        // Initialize Products
+        function initializeProducts() {
+            const productList = document.getElementById('product-list');
+            productList.innerHTML = '';
             
-            if (!cart[product]) {
-                cart[product] = { qty: 0, price: price };
-            }
-            cart[product].qty += 1;
-            
-            updateCart();
-        });
-
-        function updateCart() {
-            const cartList = document.getElementById("cart");
-            const totalPriceElem = document.getElementById("total-price");
-            const cartCountElem = document.getElementById("cart-count");
-
-            cartList.innerHTML = "";
-            let total = 0;
-            let totalItems = 0;
-
-            Object.entries(cart).forEach(([product, details]) => {
-                const itemTotal = details.qty * details.price;
-                total += itemTotal;
-                totalItems += details.qty;
-
-                cartList.innerHTML += `<li class="list-group-item">
-                    ${product} - Quantity: ${details.qty} - $${itemTotal}
-                    <button class="btn btn-danger btn-sm ms-2" onclick="changeQty('${product}', -1)">-</button>
-                    <button class="btn btn-success btn-sm ms-1" onclick="changeQty('${product}', 1)">+</button>
-                </li>`;
+            products.forEach((product, index) => {
+                const productHTML = `
+                    <div class="col-lg-4 col-md-6">
+                        <div class="product-card animate-fade-in fade-in-delay-${(index % 3) + 1}">
+                            <img src="${product.image}" alt="${product.name}" class="product-image">
+                            <div class="product-info">
+                                <h4 class="product-name">${product.name}</h4>
+                                <div class="product-price">$${product.price.toLocaleString()}</div>
+                                <div class="product-buttons">
+                                    <button class="btn-add-to-cart" data-id="${product.id}">
+                                        <i class="fas fa-shopping-cart me-2"></i> Add to Cart
+                                    </button>
+                                    <button class="btn-buy-now" data-id="${product.id}">
+                                        Buy Now
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                productList.innerHTML += productHTML;
             });
 
-            totalPriceElem.textContent = total;
-            cartCountElem.textContent = totalItems;
+            // Add event listeners to buttons
+            document.querySelectorAll('.btn-add-to-cart').forEach(btn => {
+                btn.addEventListener('click', addToCart);
+            });
+
+            document.querySelectorAll('.btn-buy-now').forEach(btn => {
+                btn.addEventListener('click', buyNow);
+            });
         }
 
-        function changeQty(product, amount) {
-            if (!cart[product]) return;
+        // Cart Functions
+        function addToCart(e) {
+            const productId = e.target.dataset.id || e.target.closest('.btn-add-to-cart').dataset.id;
+            const product = products.find(p => p.id == productId);
             
-            cart[product].qty += amount;
-            if (cart[product].qty <= 0) {
-                delete cart[product];
+            if (!cart[productId]) {
+                cart[productId] = { ...product, quantity: 0 };
             }
+            cart[productId].quantity += 1;
+            
+            updateCart();
+            showNotification(`${product.name} added to cart`);
+        }
 
+        function buyNow(e) {
+            const productId = e.target.dataset.id || e.target.closest('.btn-buy-now').dataset.id;
+            const product = products.find(p => p.id == productId);
+            
+            cart = { [productId]: { ...product, quantity: 1 } };
+            
+            updateCart();
+            showNotification(`Proceeding to checkout with ${product.name}`);
+            openCart();
+        }
+
+        function updateCart() {
+            let total = 0;
+            let totalItems = 0;
+            
+            cartItemsContainer.innerHTML = '';
+            
+            Object.values(cart).forEach(item => {
+                const itemTotal = item.price * item.quantity;
+                total += itemTotal;
+                totalItems += item.quantity;
+                
+                const cartItemHTML = `
+                    <div class="cart-item">
+                        <img src="${item.image}" alt="${item.name}" class="cart-item-image">
+                        <div class="cart-item-info">
+                            <h6 class="cart-item-name">${item.name}</h6>
+                            <div class="cart-item-price">$${item.price.toLocaleString()}</div>
+                            <div class="cart-item-controls mt-2">
+                                <button class="quantity-btn" onclick="changeQuantity(${item.id}, -1)">
+                                    <i class="fas fa-minus"></i>
+                                </button>
+                                <span>${item.quantity}</span>
+                                <button class="quantity-btn" onclick="changeQuantity(${item.id}, 1)">
+                                    <i class="fas fa-plus"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                cartItemsContainer.innerHTML += cartItemHTML;
+            });
+            
+            if (totalItems === 0) {
+                cartItemsContainer.innerHTML = `
+                    <div class="empty-cart">
+                        <i class="fas fa-shopping-bag"></i>
+                        <h5>Your cart is empty</h5>
+                        <p class="text-muted">Add some timeless pieces to get started</p>
+                    </div>
+                `;
+                checkoutBtn.disabled = true;
+            } else {
+                checkoutBtn.disabled = false;
+            }
+            
+            totalPriceElement.textContent = total.toLocaleString();
+            cartCountElement.textContent = totalItems;
+            
+            // Save to localStorage
+            localStorage.setItem('rolexCart', JSON.stringify(cart));
+        }
+
+        function changeQuantity(productId, amount) {
+            if (!cart[productId]) return;
+            
+            cart[productId].quantity += amount;
+            
+            if (cart[productId].quantity <= 0) {
+                delete cart[productId];
+            }
+            
             updateCart();
         }
-    </script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
+        // Cart Modal Functions
+        function openCart() {
+            cartModal.classList.add('active');
+            modalBackdrop.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeCartModal() {
+            cartModal.classList.remove('active');
+            modalBackdrop.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        cartTrigger.addEventListener('click', (e) => {
+            e.preventDefault();
+            openCart();
+        });
+
+        closeCart.addEventListener('click', closeCartModal);
+        modalBackdrop.addEventListener('click', closeCartModal);
+
+        // Checkout
+        checkoutBtn.addEventListener('click', () => {
+            if (Object.keys(cart).length === 0) return;
+            
+            showNotification('Proceeding to secure checkout...');
+            
+            setTimeout(() => {
+                showNotification('Order placed successfully!');
+                cart = {};
+                updateCart();
+                closeCartModal();
+            }, 2000);
+        });
+
+        // Notification System
+        function showNotification(message) {
+            notificationText.textContent = message;
+            notification.classList.add('show');
+            
+            setTimeout(() => {
+                notification.classList.remove('show');
+            }, 3000);
+        }
+
+        // Form Submission
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Simulate form submission
+            showNotification('Message sent successfully!');
+            this.reset();
+        });
+
+        // Navbar Scroll Effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.querySelector('.modern-navbar');
+            if (window.scrollY > 100) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Smooth Scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeProducts();
+            updateCart();
+            
+            // Set active nav link on scroll
+            window.addEventListener('scroll', () => {
+                const sections = document.querySelectorAll('section');
+                const navLinks = document.querySelectorAll('.nav-link');
+                
+                let current = '';
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.clientHeight;
+                    if (scrollY >= sectionTop - 150) {
+                        current = section.getAttribute('id');
+                    }
+                });
+                
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === `#${current}`) {
+                        link.classList.add('active');
+                    }
+                });
+            });
+        });
+    </script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
